@@ -44,6 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/h2/**",
+                "/v1/session/**",
                 "/v1/usuarios/auth",
                 "/configuration/**"
         );
@@ -53,7 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf()
                 .disable()
                 .authorizeRequests()
-                .antMatchers("/v1/usuarios/**")
+                .antMatchers("/v1/usuarios/**","v1/session/**")
                 .hasAnyRole("USER", "ADMIN")
                 .antMatchers("/v1/usuarios/**",
                         "/v1/session/**")
