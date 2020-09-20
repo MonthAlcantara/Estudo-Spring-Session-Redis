@@ -13,10 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("v1/session")
 public class SessionController extends HttpServlet {
 
-    @Autowired
-    Jedis j;
-
-
     @GetMapping("/contador")
     public String contaRefresh(HttpServletRequest request) {
         Integer pageViews = 1;
